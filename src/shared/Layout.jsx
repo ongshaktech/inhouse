@@ -1,12 +1,16 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Navbar from './Navbar'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
+import useAuthCheck from "../hooks/useAuthCheck";
 
 export default function Layout() {
-  return (
+  const authIsReady = useAuthCheck();
+  return !authIsReady ? (
+    <div>Loading</div>
+  ) : (
     <div>
-        <Navbar />
-        <Outlet />
+      <Navbar />
+      <Outlet />
     </div>
-  )
+  );
 }
