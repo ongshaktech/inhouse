@@ -3,6 +3,8 @@ import Layout from "../shared/Layout";
 import Home from "../pages/home/Home";
 import Signin from "../pages/Signin/Signin";
 import TodaysPlan from "../pages/todayPlan/TodaysPlan";
+import Project from "../pages/project/Project";
+import Timeline from "../pages/timeline/Timeline";
 
 const routes = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const routes = createBrowserRouter([
       {
         path: "/todays-plan",
         element: <TodaysPlan />,
+      },
+      {
+        path: "/projects",
+        element: <Project />,
+      },
+      {
+        path: "/timeline",
+        element: <Timeline />,
       },
     ],
   },
