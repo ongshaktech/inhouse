@@ -1,9 +1,12 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 export default function DashboardIncompleteTask({
   projectName,
   project,
   phase,
+  selectedTask,
+  setSelectedTask
 }) {
   let tasks = project?.incomplete[projectName];
   let otherClass =
@@ -15,6 +18,23 @@ export default function DashboardIncompleteTask({
       ? "border-[#051F4D] bg-[#AECBFF]/50 text-[#051F4D]"
       : "border-[#E20DCD] bg-[#FBDCF8] text-[#E20DCD]";
 
+  const handleTask = (e) => {
+    let trackingId = Number(e.target.value);
+    let hasTask = selectedTask?.some(
+      (account) => account?.task_id === trackingId
+    );
+
+    console.log("hasTask", trackingId, hasTask);
+
+    if (!hasTask) {
+      setSelectedTask([{ task_id: trackingId, status: "ongoing" }]);
+    }
+
+    if (hasTask) {
+      toast.error("Can't add more than one task");
+    }
+  };
+
   return tasks?.map((task) => (
     <div className={`flex gap-2 p-2  rounded-md  border ${otherClass}`}>
       <div className="w-[20px] ">
@@ -23,6 +43,11 @@ export default function DashboardIncompleteTask({
           name=""
           id=""
           className="border "
+          checked={selectedTask?.some(
+            (account) => account?.task_id === task?.id
+          )}
+          value={task?.id}
+          onChange={handleTask}
         />
       </div>
       <div className="w-full  text-sm">
@@ -30,7 +55,9 @@ export default function DashboardIncompleteTask({
           <li>- {task?.task_name}</li>
         </ul>
         <div className="flex justify-end gap-4 pt-1">
-          <p className={`text-right border font-bold  px-3 rounded-sm ${otherClass}`}>
+          <p
+            className={`text-right border font-bold  px-3 rounded-sm ${otherClass}`}
+          >
             {task?.project_name}
           </p>
           <p>{phase}</p>

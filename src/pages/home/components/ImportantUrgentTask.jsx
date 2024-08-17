@@ -1,7 +1,7 @@
 import React from "react";
 import DashboardIncompleteTask from "./DashboardIncompleteTask";
 
-export default function ImportantUrgentTask({ project, phase }) {
+export default function ImportantUrgentTask({ project, phase, selectedTask, setSelectedTask }) {
   let allProjects = Object.keys(project?.incomplete ? project?.incomplete : {});
   //   let allProjectsCompleted = Object.keys(
   //     project?.completed ? project?.completed : {}
@@ -19,7 +19,9 @@ export default function ImportantUrgentTask({ project, phase }) {
                 key={id}
                 projectName={projectDetail}
                 project={project}
-                phase={ phase}
+                phase={phase}
+                selectedTask={selectedTask}
+                setSelectedTask={setSelectedTask}
               />
             ))
           : null}
