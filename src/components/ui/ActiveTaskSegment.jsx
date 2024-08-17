@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-export default function ActiveTaskSegment({ projectName, obj, phase }) {
+export default function ActiveTaskSegment({
+  projectName,
+  obj,
+  phase,
+  setSelectedTask,
+  selectedTask,
+}) {
   let tasks = obj?.ongoing[projectName];
 
-  console.log("tasks", tasks);
+
+  useEffect(() => {
+    let data = tasks?.map((task) => ({
+      task_id: task?.id,
+      status: "completed"
+    }));
+    setSelectedTask([...selectedTask, ...data]);
+  }, [projectName]);
   return (
     <>
       <div className="flex justify-between items-center py-2">
