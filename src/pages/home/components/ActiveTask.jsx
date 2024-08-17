@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ActiveCard from "../../../components/ui/ActiveCard";
 import { FaPencil } from "react-icons/fa6";
 import { useGetTaskOverviewQuery } from "../../../features/projects/projectsApi";
+import Modal from "../../../shared/Modal";
+import CreateTaskForm from "./CreateTaskForm";
 
 export default function ActiveTask() {
   const { data, isLoading, isError, error } = useGetTaskOverviewQuery();
   console.log("data", data, isLoading, isError, error);
+  let [showCreateForm, setShowCreateForm] = useState(false);
   return (
     <div className="container mx-auto px-6 py-6">
       <div className="flex flex-col md:flex-row justify-between items-center pb-4">
@@ -13,7 +16,10 @@ export default function ActiveTask() {
           Active Task Overview
         </h2>
         <div className="flex gap-4 items-center">
-          <button className="flex gap-2 items-center border border-gray-400 px-3 py-2 rounded-md">
+          <button
+            className="flex gap-2 items-center border border-gray-400 px-3 py-2 rounded-md"
+            onClick={() => setShowCreateForm(!showCreateForm)}
+          >
             <FaPencil />
             <p>Create</p>
           </button>
@@ -36,6 +42,11 @@ export default function ActiveTask() {
           <ActiveCard task={task} />
         ))}
       </div>
+      {showCreateForm ? (
+        <Modal open={showCreateForm} control={() => setShowCreateForm(false)}>
+          <CreateTaskForm />
+        </Modal>
+      ) : null}
     </div>
   );
 }
