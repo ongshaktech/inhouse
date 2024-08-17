@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HiOutlineViewList, HiOutlineX } from "react-icons/hi";
 import { HiOutlineBellAlert } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import photo from "../assets/images/photo.jpeg";
 import { useGetProfileQuery } from "../features/userApi/userApi";
 import men1 from "../assets/images/men1.png"
@@ -38,7 +38,11 @@ export default function Navbar() {
         >
           <ul className="flex flex-col md:flex-row gap-16 items-center text-sm ">
             <p>Dashboard</p>
-            <p>Task</p>
+            <NavLink to='/todays-plan'  className={({ isActive }) =>
+            isActive ? "font-bold" : ""
+          }>
+            <p>Todays Plan</p>
+            </NavLink>
             <p>Projects</p>
             <p>Timeline</p>
 
