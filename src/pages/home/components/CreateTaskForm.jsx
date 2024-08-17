@@ -110,7 +110,7 @@ export default function CreateTaskForm() {
           <div className="flex flex-col gap-2 items-center">
             {taskDetail?.task_names?.map((task, id) => (
               <div key={id} className="p-2 bg-white w-full rounded-md">
-                {task}
+                - {task}
               </div>
             ))}
           </div>

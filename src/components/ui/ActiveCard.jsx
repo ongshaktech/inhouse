@@ -52,7 +52,7 @@ export default function ActiveCard({ task }) {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success(compelteData?.status);
+      toast.success("Successfully Complete your task");
     }
   }, [isSuccess]);
 
