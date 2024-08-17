@@ -5,7 +5,6 @@ import {
   useGetTaskDetailQuery,
 } from "../../../features/projects/projectsApi";
 import { toast } from "react-toastify";
-// import Toast from "../../../components/UI/Toast";
 
 export default function CreateTaskForm() {
   let [taskName, setTaskName] = useState("");
@@ -192,7 +191,6 @@ export default function CreateTaskForm() {
           {isLoading ? "Processing" : "Create"}
         </div>
       </form>
-      {/* <Toast /> */}
     </div>
   );
 }
