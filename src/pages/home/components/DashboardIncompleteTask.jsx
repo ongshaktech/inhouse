@@ -16,17 +16,17 @@ export default function DashboardIncompleteTask({
       : "border-[#E20DCD] bg-[#FBDCF8] text-[#E20DCD]";
 
   return tasks?.map((task) => (
-    <div className={`flex gap-4 p-2  rounded-md  border ${otherClass}`}>
-      <div className="w-[40px]">
+    <div className={`flex gap-2 p-2  rounded-md  border ${otherClass}`}>
+      <div className="w-[20px] ">
         <input
           type="checkbox"
           name=""
           id=""
-          className="border border-[#FF2327] outline-[#FF2327]"
+          className="border "
         />
       </div>
-      <div className="w-full text-sm">
-        <ul className="pl-6">
+      <div className="w-full  text-sm">
+        <ul className="pl-2">
           <li>- {task?.task_name}</li>
         </ul>
         <div className="flex justify-end gap-4 pt-1">
