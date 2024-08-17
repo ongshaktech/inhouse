@@ -35,11 +35,11 @@ export default function ActiveCard({ task }) {
   return allData?.length ? (
     <div className="shadow-md rounded-lg p-4 relative">
       <div className="flex gap-4 justify-between items-center">
-        <div className="absolute -top-6 left-4">
+        <div className="absolute -top-4 left-4">
           <img
             src={task?.profile_img}
             alt=""
-            className="w-[60px] h-[60px] object-cover rounded-full"
+            className="w-[50px] h-[50px] object-cover rounded-full"
           />
         </div>
 
