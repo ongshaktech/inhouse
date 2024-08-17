@@ -46,7 +46,7 @@ export default function Signin() {
 
   return (
     <div className="signin relative  bg-[#2B2B2B] h-screen w-full">
-      <div className="max-w-6xl mx-auto px-4 flex justify-center items-center  h-full relative z-10">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-center items-center  h-full relative z-10">
         <div className="w-full">
           <img src={signup_side} alt="" />
         </div>
