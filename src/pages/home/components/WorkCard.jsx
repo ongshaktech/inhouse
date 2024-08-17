@@ -118,8 +118,6 @@ export default function WorkCard({ task }) {
             selectedTask={selectedTask}
             setSelectedTask={setSelectedTask}
           />
-          {/* <ProjectWiseTask />
-          <ProjectWiseTask /> */}
         </div>
       </div>
 
