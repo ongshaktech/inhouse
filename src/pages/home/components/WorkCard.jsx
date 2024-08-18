@@ -10,7 +10,7 @@ import ongoingImg from "../../../assets/images/ongoing.svg";
 import { useCompleteTaskMutation } from "../../../features/projects/projectsApi";
 import { toast } from "react-toastify";
 
-export default function WorkCard({ task, showCreateForm, setShowCreateForm }) {
+export default function WorkCard({ task, showCreateForm, setShowCreateForm, }) {
   let importantNotUrgentTask = Object.keys(
     task?.important_not_urgent?.ongoing
       ? task?.important_not_urgent?.ongoing
@@ -96,7 +96,7 @@ export default function WorkCard({ task, showCreateForm, setShowCreateForm }) {
         </div>
       </div>
       <div className="flex gap-8 divide-x md:divide-dashed  divide-gray-400 min-h-[400px] max-h-[400px] overflow-y-scroll">
-        <div className="w-full flex flex-col ">
+        <div className={`w-full flex  flex-col`}>
           <ImportantUrgentTask
             project={task?.important_urgent}
             phase="IU"

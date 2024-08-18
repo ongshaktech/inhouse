@@ -9,8 +9,15 @@ export default function WorkPlan({ showCreateForm, setShowCreateForm }) {
       <h2 className="text-2xl font-bold text-pen pb-4">Work Plan</h2>
       <div className=" flex flex-col gap-8">
         {/* <WorkCard /> */}
+        <div className="grid grid-cols-1 gap-8">
+          <WorkCard
+            task={data[0]}
+            showCreateForm={showCreateForm}
+            setShowCreateForm={setShowCreateForm}
+          />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {data?.map((task) => (
+          {data?.slice(1)?.map((task) => (
             <WorkCard
               task={task}
               showCreateForm={showCreateForm}

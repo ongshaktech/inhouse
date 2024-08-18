@@ -32,15 +32,15 @@ export default function CompletedTask() {
             </tr>
           </thead>
           <tbody className="text-black font-semibold">
-            {/* {data?.map((project, id) => (
-          <CompletedTaskTable task={project} key={id} />
-      ))} */}
-            <CompletedTaskTable task={data[0]} />
+            {data?.map((project, id) => (
+              <CompletedTaskTable task={project} key={id} />
+            ))}
+            {/* <CompletedTaskTable task={data[0]} /> */}
           </tbody>
         </table>
       </div>
     );
   }
 
-  return  content ;
+  return content;
 }

@@ -34,24 +34,28 @@ export default function CompletedTaskTable({ task }) {
         <IndividualCompleteTask
           projectName={project}
           obj={task?.important_not_urgent}
+          image={task?.profile_img}
         />
       ))}
       {importantNotUrgentTask?.map((project) => (
         <IndividualCompleteTask
           projectName={project}
           obj={task?.important_not_urgent}
+          image={task?.profile_img}
         />
       ))}
       {importantNotUrgentTask?.map((project) => (
         <IndividualCompleteTask
           projectName={project}
           obj={task?.important_not_urgent}
+          image={task?.profile_img}
         />
       ))}
       {importantNotUrgentTask?.map((project) => (
         <IndividualCompleteTask
           projectName={project}
           obj={task?.important_not_urgent}
+          image={task?.profile_img}
         />
       ))}
     </>

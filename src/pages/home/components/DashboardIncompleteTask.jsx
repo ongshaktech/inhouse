@@ -36,7 +36,8 @@ export default function DashboardIncompleteTask({
   };
 
   return tasks?.map((task) => (
-    <div className={`flex gap-2 p-2  rounded-md  border ${otherClass}`}>
+   <>
+    <div className={`flex   gap-2 p-2  rounded-md  border ${otherClass}`}>
       <div className="w-[20px] ">
         <input
           type="checkbox"
@@ -64,5 +65,6 @@ export default function DashboardIncompleteTask({
         </div>
       </div>
     </div>
+   </>
   ));
 }
