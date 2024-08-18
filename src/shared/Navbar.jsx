@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import photo from "../assets/images/photo.jpeg";
 import { useGetProfileQuery } from "../features/userApi/userApi";
 import men1 from "../assets/images/men1.png";
+import { FaAngleDown } from "react-icons/fa";
 
 export default function Navbar() {
   let [showNav, setShowNav] = useState(false);
@@ -38,12 +39,29 @@ export default function Navbar() {
         >
           <ul className="flex flex-col md:flex-row gap-16 items-center text-sm ">
             {/* <p>Dashboard</p> */}
-            <NavLink
-              to="/todays-plan"
-              className={({ isActive }) => (isActive ? "font-bold" : "")}
-            >
-              <p>Todays Plan</p>
-            </NavLink>
+          
+            <div className="relative">
+              <p className=" peer font-semibold text-[12px] flex items-center gap-1 cursor-pointer">
+                <p>Tasks</p>
+                <FaAngleDown />
+              </p>
+              <div
+                className={`z-10 hidden  peer-hover:flex hover:flex  absolute top-[15px] left-0 bg-white divide-y divide-gray-100  shadow w-56 p-4 border-t-4 border-primary`}
+              >
+                <div className="w-full">
+                  <NavLink  to="/todays-plan" smooth>
+                    <p className="text-[12px] hover:bg-primary p-2 cursor-pointer">
+                    Todays’Task
+                    </p>
+                  </NavLink>
+                  <NavLink to="/tasks" smooth>
+                    <p className="text-[12px] hover:bg-primary p-2 cursor-pointer">
+                    View Task
+                    </p>
+                  </NavLink>
+                </div>
+              </div>
+            </div>
             <NavLink
               to="/projects"
               className={({ isActive }) => (isActive ? "font-bold" : "")}
