@@ -5,8 +5,11 @@ import {
   useGetTaskDetailQuery,
 } from "../../../features/projects/projectsApi";
 import { toast } from "react-toastify";
+import SearchProjectList from "./SearchProjectList";
 
 export default function CreateTaskForm() {
+  let [projectTerm, setProjectTerm] = useState("");
+  let [showProjectList, setShowProjectList] = useState(false);
   let [taskName, setTaskName] = useState("");
   const [taskDetail, setTaskDetail] = useState({
     project_id: "",
@@ -16,6 +19,8 @@ export default function CreateTaskForm() {
     resources: "",
     due_date: "",
   });
+
+  console.log('taskDetail', taskDetail)
 
   const { data: taskoverview } = useGetTaskDetailQuery();
 
@@ -67,9 +72,34 @@ export default function CreateTaskForm() {
       </div>
       <form className="  mx-auto flex flex-col gap-6 py-8">
         {/* <div className="flex gap-8"> */}
-        <label className="flex flex-col gap-2 w-full">
+        <label className="relative flex flex-col gap-2 w-full">
           <p className="font-medium">Select the Project</p>
-          <select
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="eg. Bangladesh"
+             className="w-full px-4 py-2 rounded-md outline-none border border-[#727070]"
+            value={projectTerm}
+            onChange={(e) => {
+              setProjectTerm(e.target.value);
+              setShowProjectList(true);
+            }}
+          />
+           {showProjectList && (
+            <div className="absolute top-[72px] z-10">
+              <SearchProjectList
+                term={projectTerm}
+                setTerm={setProjectTerm}
+                controll={() => setShowProjectList(false)}
+                projects={taskoverview?.projects}
+                setTaskDetail={setTaskDetail}
+                taskDetail={taskDetail}
+                // setData={(data) => modifySegment(index, { origin: data })}
+              />
+            </div>
+          )}
+          {/* <select
             className="px-4 py-2 rounded-md outline-none border border-[#727070]"
             value={taskDetail?.project_id}
             onChange={(e) =>
@@ -85,7 +115,7 @@ export default function CreateTaskForm() {
                 {project?.name}
               </option>
             ))}
-          </select>
+          </select> */}
         </label>
         <label className="flex flex-col gap-2 w-full">
           <p className="font-medium">Task Name </p>

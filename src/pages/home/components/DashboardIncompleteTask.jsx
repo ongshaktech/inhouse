@@ -6,17 +6,17 @@ export default function DashboardIncompleteTask({
   project,
   phase,
   selectedTask,
-  setSelectedTask
+  setSelectedTask,
 }) {
   let tasks = project?.incomplete[projectName];
   let otherClass =
     phase == "IU"
-      ? "border-blue text-blue bg-[#EEF8FF]"
+      ? "border-[#E20DCD] bg-[#FBDCF8] text-[#E20DCD]"
       : phase == "I!U"
       ? "border-[#E8F70C] bg-[#F3FDD2]/60 text-black"
       : phase == "!I!U"
       ? "border-[#051F4D] bg-[#AECBFF]/50 text-[#051F4D]"
-      : "border-[#E20DCD] bg-[#FBDCF8] text-[#E20DCD]";
+      : "border-blue text-blue bg-[#EEF8FF]";
 
   const handleTask = (e) => {
     let trackingId = Number(e.target.value);
