@@ -6,10 +6,14 @@ import {
 } from "../../../features/projects/projectsApi";
 import { toast } from "react-toastify";
 import SearchProjectList from "./SearchProjectList";
+import SearchUserList from "./SearchUserlist";
 
 export default function CreateTaskForm() {
   let [projectTerm, setProjectTerm] = useState("");
+  let [userTerm, setUserTerm] = useState("");
   let [showProjectList, setShowProjectList] = useState(false);
+  let [showUserList, setShowUserList] = useState(false);
+
   let [taskName, setTaskName] = useState("");
   const [taskDetail, setTaskDetail] = useState({
     project_id: "",
@@ -20,7 +24,7 @@ export default function CreateTaskForm() {
     due_date: "",
   });
 
-  console.log('taskDetail', taskDetail)
+  console.log("taskDetail", taskDetail);
 
   const { data: taskoverview } = useGetTaskDetailQuery();
 
@@ -78,15 +82,15 @@ export default function CreateTaskForm() {
             type="text"
             name=""
             id=""
-            placeholder="eg. Bangladesh"
-             className="w-full px-4 py-2 rounded-md outline-none border border-[#727070]"
+            placeholder="eg. inhouse"
+            className="w-full px-4 py-2 rounded-md outline-none border border-[#727070]"
             value={projectTerm}
             onChange={(e) => {
               setProjectTerm(e.target.value);
               setShowProjectList(true);
             }}
           />
-           {showProjectList && (
+          {showProjectList && (
             <div className="absolute top-[72px] z-10">
               <SearchProjectList
                 term={projectTerm}
@@ -99,23 +103,6 @@ export default function CreateTaskForm() {
               />
             </div>
           )}
-          {/* <select
-            className="px-4 py-2 rounded-md outline-none border border-[#727070]"
-            value={taskDetail?.project_id}
-            onChange={(e) =>
-              setTaskDetail({
-                ...taskDetail,
-                project_id: Number(e.target.value),
-              })
-            }
-          >
-            <option>Select Project</option>
-            {taskoverview?.projects?.map((project) => (
-              <option key={project?.id} value={project?.id}>
-                {project?.name}
-              </option>
-            ))}
-          </select> */}
         </label>
         <label className="flex flex-col gap-2 w-full">
           <p className="font-medium">Task Name </p>
@@ -164,7 +151,36 @@ export default function CreateTaskForm() {
             }
           />
         </label>
-        <label className="flex flex-col gap-2 w-full">
+        
+        <label className="relative flex flex-col gap-2 w-full">
+          <p className="font-medium">Assign Task to</p>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="eg. Ridwan"
+            className="w-full px-4 py-2 rounded-md outline-none border border-[#727070]"
+            value={userTerm}
+            onChange={(e) => {
+              setUserTerm(e.target.value);
+              setShowUserList(true);
+            }}
+          />
+          {showUserList && (
+            <div className="absolute top-[72px] z-10">
+              <SearchUserList
+                term={userTerm}
+                setTerm={setUserTerm}
+                controll={() => setShowUserList(false)}
+                users={taskoverview?.users}
+                setTaskDetail={setTaskDetail}
+                taskDetail={taskDetail}
+                // setData={(data) => modifySegment(index, { origin: data })}
+              />
+            </div>
+          )}
+        </label>
+        {/* <label className="flex flex-col gap-2 w-full">
           <p className="font-medium">Assign Task to </p>
           <select
             className="px-4 py-2 rounded-md outline-none border border-[#727070]"
@@ -183,7 +199,7 @@ export default function CreateTaskForm() {
               </option>
             ))}
           </select>
-        </label>
+        </label> */}
         <label className="flex flex-col gap-2 w-full">
           <p className="font-medium">Resources</p>
 
