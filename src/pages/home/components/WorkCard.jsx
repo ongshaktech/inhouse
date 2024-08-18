@@ -92,7 +92,7 @@ export default function WorkCard({ task, showCreateForm, setShowCreateForm }) {
             className="w-6 h-6 cursor-pointer"
             onClick={() => setShowCreateForm(!showCreateForm)}
           />
-          <TbDotsVertical className="w-6 h-6 cursor-pointer" />
+          {/* <TbDotsVertical className="w-6 h-6 cursor-pointer" /> */}
         </div>
       </div>
       <div className="flex gap-8 divide-x md:divide-dashed  divide-gray-400 min-h-[400px] max-h-[400px] overflow-y-scroll">

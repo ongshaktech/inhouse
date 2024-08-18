@@ -5,12 +5,13 @@ import { useGetTaskOverviewQuery } from "../../../features/projects/projectsApi"
 import Modal from "../../../shared/Modal";
 import CreateTaskForm from "./CreateTaskForm";
 import CreateProjectForm from "./CreateProjectForm";
+import { FaAngleDown } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
-export default function ActiveTask({showCreateForm, setShowCreateForm}) {
+export default function ActiveTask({ showCreateForm, setShowCreateForm }) {
   const { data, isLoading, isError, error } = useGetTaskOverviewQuery();
   console.log("data", data, isLoading, isError, error);
 
-  
   let [showCreateProject, setShowCreateProject] = useState(false);
   return (
     <div className="container mx-auto px-6 py-6">
@@ -19,20 +20,39 @@ export default function ActiveTask({showCreateForm, setShowCreateForm}) {
           Active Task Overview
         </h2>
         <div className="flex gap-4 flex-col md:flex-row items-center">
-          <button
-            className="flex gap-2 items-center border border-gray-400 px-3 py-2 rounded-md"
-            onClick={() => setShowCreateForm(!showCreateForm)}
-          >
-            <FaPencil />
-            <p>Create Task</p>
+          <div className="relative">
+            {/* <p className="  font-semibold text-[12px] flex items-center gap-1 cursor-pointer">
+                <p>create</p>
+                <FaAngleDown />
+              </p> */}
+
+            <button className="peer flex gap-2 items-center border border-gray-400 px-3 py-2 rounded-md">
+              <FaPencil />
+              <p>Create</p>
+            </button>
+            <div
+              className={`z-10 hidden  peer-hover:flex hover:flex  absolute top-10 left-0 bg-white divide-y divide-gray-100  shadow w-56 p-4 border-t-4 border-primary`}
+            >
+              <div className="w-full">
+                <p
+                  className="text-[12px] hover:bg-primary p-2 cursor-pointer"
+                  onClick={() => setShowCreateForm(!showCreateForm)}
+                >
+                  Create Task
+                </p>
+                <p
+                  className="text-[12px] hover:bg-primary p-2 cursor-pointer"
+                  onClick={() => setShowCreateProject(!showCreateProject)}
+                >
+                  Create Project
+                </p>
+              </div>
+            </div>
+          </div>
+          <button className="flex gap-2 items-center border border-gray-400 px-3 py-2 rounded-md">
+            <p>Assigned Task</p>
           </button>
-          <button
-            className="flex gap-2 items-center border border-gray-400 px-3 py-2 rounded-md"
-            onClick={() => setShowCreateProject(!showCreateProject)}
-          >
-            <p>Create Project</p>
-          </button>
-          <select
+          {/* <select
             name=""
             id=""
             className="px-3 py-2 rounded-md border border-gray-400"
@@ -40,7 +60,7 @@ export default function ActiveTask({showCreateForm, setShowCreateForm}) {
             <option>January</option>
             <option>February</option>
             <option>March</option>
-          </select>
+          </select> */}
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-6">
