@@ -39,7 +39,7 @@ export default function Navbar() {
         >
           <ul className="flex flex-col md:flex-row gap-16 items-center text-sm ">
             {/* <p>Dashboard</p> */}
-          
+
             <div className="relative">
               <p className=" peer font-semibold text-[12px] flex items-center gap-1 cursor-pointer">
                 <p>Tasks</p>
@@ -49,14 +49,14 @@ export default function Navbar() {
                 className={`z-10 hidden  peer-hover:flex hover:flex  absolute top-[15px] left-0 bg-white divide-y divide-gray-100  shadow w-56 p-4 border-t-4 border-primary`}
               >
                 <div className="w-full">
-                  <NavLink  to="/todays-plan" smooth>
+                  <NavLink to="/todays-plan" smooth>
                     <p className="text-[12px] hover:bg-primary p-2 cursor-pointer">
-                    Todays’Task
+                      Todays’Task
                     </p>
                   </NavLink>
-                  <NavLink to="/tasks" smooth>
+                  <NavLink to="/completed-task" smooth>
                     <p className="text-[12px] hover:bg-primary p-2 cursor-pointer">
-                    View Task
+                      Completed Task
                     </p>
                   </NavLink>
                 </div>
@@ -76,9 +76,9 @@ export default function Navbar() {
             </NavLink>
 
             <div className="flex gap-6 items-center">
-              <div>
+              {/* <div>
                 <HiOutlineBellAlert className="w-6 h-6" />
-              </div>
+              </div> */}
               <div>
                 <img
                   src={profileData?.image ? profileData?.image : men1}

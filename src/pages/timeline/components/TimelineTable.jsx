@@ -21,10 +21,6 @@ export default function TimelineTable() {
             <th scope="col" className="px-6 py-4">
               Due Date
             </th>
-
-            <th scope="col" className="px-6 py-4">
-              Project
-            </th>
             <th scope="col" className="px-6 py-4">
               Status
             </th>
@@ -50,7 +46,6 @@ export default function TimelineTable() {
               <td className="px-6 py-4 border-r ">
                 {timeline?.deadline?.slice(0, 10)}
               </td>
-              <td className="px-6 py-4 border-r ">{timeline?.name}</td>
               <td className="px-6 py-4 border-r ">{timeline?.status}</td>
             </tr>
           ))}

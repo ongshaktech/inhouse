@@ -5,6 +5,7 @@ import Signin from "../pages/Signin/Signin";
 import TodaysPlan from "../pages/todayPlan/TodaysPlan";
 import Project from "../pages/project/Project";
 import Timeline from "../pages/timeline/Timeline";
+import AllTask from "../pages/allTasks/AllTask";
 
 const routes = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const routes = createBrowserRouter([
       {
         path: "/timeline",
         element: <Timeline />,
+      },
+      {
+        path: "/completed-task",
+        element: <AllTask  />,
       },
     ],
   },
