@@ -6,11 +6,11 @@ import Modal from "../../../shared/Modal";
 import CreateTaskForm from "./CreateTaskForm";
 import CreateProjectForm from "./CreateProjectForm";
 
-export default function ActiveTask() {
+export default function ActiveTask({showCreateForm, setShowCreateForm}) {
   const { data, isLoading, isError, error } = useGetTaskOverviewQuery();
   console.log("data", data, isLoading, isError, error);
 
-  let [showCreateForm, setShowCreateForm] = useState(false);
+  
   let [showCreateProject, setShowCreateProject] = useState(false);
   return (
     <div className="container mx-auto px-6 py-6">

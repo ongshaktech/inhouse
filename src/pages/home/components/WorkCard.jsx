@@ -10,7 +10,7 @@ import ongoingImg from "../../../assets/images/ongoing.svg";
 import { useCompleteTaskMutation } from "../../../features/projects/projectsApi";
 import { toast } from "react-toastify";
 
-export default function WorkCard({ task }) {
+export default function WorkCard({ task, showCreateForm, setShowCreateForm }) {
   let importantNotUrgentTask = Object.keys(
     task?.important_not_urgent?.ongoing
       ? task?.important_not_urgent?.ongoing
@@ -88,7 +88,10 @@ export default function WorkCard({ task }) {
             />
           )}
 
-          <TbDeviceIpadPlus className="w-6 h-6 cursor-pointer" />
+          <TbDeviceIpadPlus
+            className="w-6 h-6 cursor-pointer"
+            onClick={() => setShowCreateForm(!showCreateForm)}
+          />
           <TbDotsVertical className="w-6 h-6 cursor-pointer" />
         </div>
       </div>

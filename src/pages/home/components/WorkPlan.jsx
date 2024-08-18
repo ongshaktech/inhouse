@@ -2,7 +2,7 @@ import React from "react";
 import WorkCard from "./WorkCard";
 import { useGetTaskOverviewQuery } from "../../../features/projects/projectsApi";
 
-export default function WorkPlan() {
+export default function WorkPlan({ showCreateForm, setShowCreateForm }) {
   const { data, isLoading, isError, error } = useGetTaskOverviewQuery();
   return (
     <div className="container mx-auto px-6">
@@ -10,11 +10,13 @@ export default function WorkPlan() {
       <div className=" flex flex-col gap-8">
         {/* <WorkCard /> */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {
-                data?.map(task => (
-                    <WorkCard task={task} />
-                ))
-            }
+          {data?.map((task) => (
+            <WorkCard
+              task={task}
+              showCreateForm={showCreateForm}
+              setShowCreateForm={setShowCreateForm}
+            />
+          ))}
         </div>
       </div>
     </div>
