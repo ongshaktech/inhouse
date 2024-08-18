@@ -92,8 +92,8 @@ export default function WorkCard({ task }) {
           <TbDotsVertical className="w-6 h-6 cursor-pointer" />
         </div>
       </div>
-      <div className="flex gap-8 divide-x md:divide-dashed  divide-gray-400">
-        <div className="w-full flex flex-col gap-4">
+      <div className="flex gap-8 divide-x md:divide-dashed  divide-gray-400 min-h-[400px] max-h-[400px] overflow-y-scroll">
+        <div className="w-full flex flex-col ">
           <ImportantUrgentTask
             project={task?.important_urgent}
             phase="IU"
