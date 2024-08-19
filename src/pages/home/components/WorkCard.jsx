@@ -35,6 +35,25 @@ export default function WorkCard({
       : {}
   );
 
+  let importantNotUrgentTaskComplete = Object.keys(
+    task?.important_not_urgent?.completed
+      ? task?.important_not_urgent?.completed
+      : {}
+  );
+  let importantUrgentTaskComplete = Object.keys(
+    task?.important_urgent?.completed ? task?.important_urgent?.completed : {}
+  );
+  let notImportantNotUrgentTaskComplete = Object.keys(
+    task?.not_important_not_urgent?.completed
+      ? task?.not_important_not_urgent?.completed
+      : {}
+  );
+  let notImportantUrgentTaskComplete = Object.keys(
+    task?.not_important_urgent?.completed
+      ? task?.not_important_urgent?.completed
+      : {}
+  );
+
   let allData = [
     ...importantNotUrgentTask,
     ...importantUrgentTask,
@@ -109,9 +128,10 @@ export default function WorkCard({
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
-            <ImportantNotUrgentTask
-              project={task?.important_not_urgent}
-              phase="I!U"
+            <NotImportantNotUrgentTask
+              project={task?.not_important_not_urgent}
+              task={task}
+              phase="!I!U"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
@@ -123,9 +143,9 @@ export default function WorkCard({
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
-            <NotImportantNotUrgentTask
-              project={task?.not_important_not_urgent}
-              phase="!I!U"
+            <ImportantNotUrgentTask
+              project={task?.important_not_urgent}
+              phase="I!U"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
@@ -154,6 +174,7 @@ export default function WorkCard({
             />
             <NotImportantNotUrgentTask
               project={task?.not_important_not_urgent}
+              task={task}
               phase="!I!U"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
