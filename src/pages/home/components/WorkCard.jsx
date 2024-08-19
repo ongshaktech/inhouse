@@ -10,7 +10,12 @@ import ongoingImg from "../../../assets/images/ongoing.svg";
 import { useCompleteTaskMutation } from "../../../features/projects/projectsApi";
 import { toast } from "react-toastify";
 
-export default function WorkCard({ task, showCreateForm, setShowCreateForm, }) {
+export default function WorkCard({
+  task,
+  showCreateForm,
+  setShowCreateForm,
+  first,
+}) {
   let importantNotUrgentTask = Object.keys(
     task?.important_not_urgent?.ongoing
       ? task?.important_not_urgent?.ongoing
@@ -95,34 +100,67 @@ export default function WorkCard({ task, showCreateForm, setShowCreateForm, }) {
           {/* <TbDotsVertical className="w-6 h-6 cursor-pointer" /> */}
         </div>
       </div>
-      <div className="flex gap-8 divide-x md:divide-dashed  divide-gray-400 min-h-[400px] max-h-[400px] overflow-y-scroll">
-        <div className={`w-full flex  flex-col`}>
-          <ImportantUrgentTask
-            project={task?.important_urgent}
-            phase="IU"
-            selectedTask={selectedTask}
-            setSelectedTask={setSelectedTask}
-          />
-          <ImportantNotUrgentTask
-            project={task?.important_not_urgent}
-            phase="I!U"
-            selectedTask={selectedTask}
-            setSelectedTask={setSelectedTask}
-          />
-          <NotImportantUrgentTask
-            project={task?.not_important_urgent}
-            phase="!IU"
-            selectedTask={selectedTask}
-            setSelectedTask={setSelectedTask}
-          />
-          <NotImportantNotUrgentTask
-            project={task?.not_important_not_urgent}
-            phase="!I!U"
-            selectedTask={selectedTask}
-            setSelectedTask={setSelectedTask}
-          />
+      {first ? (
+        <div className="flex gap-8 divide-x md:divide-dashed  divide-gray-400 min-h-[400px] max-h-[400px] overflow-y-scroll">
+          <div className={`w-full flex  flex-col`}>
+            <ImportantUrgentTask
+              project={task?.important_urgent}
+              phase="IU"
+              selectedTask={selectedTask}
+              setSelectedTask={setSelectedTask}
+            />
+            <ImportantNotUrgentTask
+              project={task?.important_not_urgent}
+              phase="I!U"
+              selectedTask={selectedTask}
+              setSelectedTask={setSelectedTask}
+            />
+          </div>
+          <div className={`w-full flex  flex-col pl-8`}>
+            <NotImportantUrgentTask
+              project={task?.not_important_urgent}
+              phase="!IU"
+              selectedTask={selectedTask}
+              setSelectedTask={setSelectedTask}
+            />
+            <NotImportantNotUrgentTask
+              project={task?.not_important_not_urgent}
+              phase="!I!U"
+              selectedTask={selectedTask}
+              setSelectedTask={setSelectedTask}
+            />
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="flex gap-8 divide-x md:divide-dashed  divide-gray-400 min-h-[400px] max-h-[400px] overflow-y-scroll">
+          <div className={`w-full flex  flex-col`}>
+            <ImportantUrgentTask
+              project={task?.important_urgent}
+              phase="IU"
+              selectedTask={selectedTask}
+              setSelectedTask={setSelectedTask}
+            />
+            <ImportantNotUrgentTask
+              project={task?.important_not_urgent}
+              phase="I!U"
+              selectedTask={selectedTask}
+              setSelectedTask={setSelectedTask}
+            />
+            <NotImportantUrgentTask
+              project={task?.not_important_urgent}
+              phase="!IU"
+              selectedTask={selectedTask}
+              setSelectedTask={setSelectedTask}
+            />
+            <NotImportantNotUrgentTask
+              project={task?.not_important_not_urgent}
+              phase="!I!U"
+              selectedTask={selectedTask}
+              setSelectedTask={setSelectedTask}
+            />
+          </div>
+        </div>
+      )}
 
       {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <ProjectWiseTask />
