@@ -65,9 +65,9 @@ export default function ActiveCard({ task }) {
   }, [isError]);
 
   return allData?.length ? (
-    <div className="shadow-md rounded-lg p-4 relative">
+    <div className="shadow-md rounded-lg p-4 relative hover:bg-gray-100 hover:scale-105 transition-all duration-300 " >
       <div className="flex gap-4 justify-between items-center pb-2">
-        <div className="absolute -top-4 left-4">
+        <div className="absolute -top-6 left-4">
           <img
             src={task?.profile_img}
             alt=""
