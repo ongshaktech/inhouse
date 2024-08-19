@@ -19,9 +19,9 @@ export default function SearchProjectList({
       return airport.name.match(regex);
     });
 
-    if (term.length === 0) {
-      fits = [];
-    }
+    // if (term.length === 0) {
+    //   fits = [];
+    // }
 
     setAllProjects(fits);
   };

@@ -42,12 +42,14 @@ export default function CreateTaskForm() {
   };
 
   const handleDeleteTask = (taskName) => {
-    let filteredTask = taskDetail?.task_names?.filter(task => task !== taskName);
+    let filteredTask = taskDetail?.task_names?.filter(
+      (task) => task !== taskName
+    );
     setTaskDetail({
       ...taskDetail,
       task_names: filteredTask,
     });
-  }
+  };
 
   useEffect(() => {
     if (isSuccess) {
@@ -97,6 +99,7 @@ export default function CreateTaskForm() {
             id=""
             placeholder="eg. inhouse"
             className="w-full px-4 py-2 rounded-md outline-none border border-[#727070]"
+            onFocus={() => setShowProjectList(true)}
             value={projectTerm}
             onChange={(e) => {
               setProjectTerm(e.target.value);
@@ -139,9 +142,15 @@ export default function CreateTaskForm() {
           </div>
           <div className="flex flex-col gap-2 items-center">
             {taskDetail?.task_names?.map((task, id) => (
-              <div key={id} className="p-2 bg-white w-full rounded-md flex gap-4 justify-between items-center" >
+              <div
+                key={id}
+                className="p-2 bg-white w-full rounded-md flex gap-4 justify-between items-center"
+              >
                 <p>- {task} </p>
-                <FaTrash className="w-4 h-4 cursor-pointer" onClick={() =>handleDeleteTask(task)} />
+                <FaTrash
+                  className="w-4 h-4 cursor-pointer"
+                  onClick={() => handleDeleteTask(task)}
+                />
               </div>
             ))}
           </div>
@@ -174,6 +183,7 @@ export default function CreateTaskForm() {
             id=""
             placeholder="eg. Ridwan"
             className="w-full px-4 py-2 rounded-md outline-none border border-[#727070]"
+            onFocus={() => setShowUserList(true)}
             value={userTerm}
             onChange={(e) => {
               setUserTerm(e.target.value);

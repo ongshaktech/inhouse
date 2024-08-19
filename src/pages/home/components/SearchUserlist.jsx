@@ -19,9 +19,9 @@ export default function SearchUserList({
       return airport.name.match(regex);
     });
 
-    if (term.length === 0) {
-      fits = [];
-    }
+    // if (term.length === 0) {
+    //   fits = [];
+    // }
 
     setAllUsers(fits);
   };

@@ -22,11 +22,11 @@ export default function ActiveTaskSegment({
         <h2 className="text-pen font-bold">{projectName}</h2>
         <button
           className={`px-3 py-1 rounded-md text-sm border ${
-            phase == "IU"
+            phase == "UI"
               ? "border-[#E20DCD] bg-[#FBDCF8] text-[#E20DCD]"
-              : phase == "I!U"
+              : phase == "!UI"
               ? "border-[#E8F70C] bg-[#F3FDD2]/60 text-black"
-              : phase == "!I!U"
+              : phase == "!U!I"
               ? "border-[#051F4D] bg-[#AECBFF]/50 text-[#051F4D]"
               : "border-blue text-blue bg-[#EEF8FF]"
           } `}

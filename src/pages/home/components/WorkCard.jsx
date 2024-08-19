@@ -124,14 +124,14 @@ export default function WorkCard({
           <div className={`w-full flex  flex-col`}>
             <ImportantUrgentTask
               project={task?.important_urgent}
-              phase="IU"
+              phase="UI"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
             <NotImportantNotUrgentTask
               project={task?.not_important_not_urgent}
               task={task}
-              phase="!I!U"
+              phase="!U!I"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
@@ -139,13 +139,13 @@ export default function WorkCard({
           <div className={`w-full flex  flex-col pl-8`}>
             <NotImportantUrgentTask
               project={task?.not_important_urgent}
-              phase="!IU"
+              phase="U!I"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
             <ImportantNotUrgentTask
               project={task?.important_not_urgent}
-              phase="I!U"
+              phase="!UI"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
@@ -156,26 +156,26 @@ export default function WorkCard({
           <div className={`w-full flex  flex-col`}>
             <ImportantUrgentTask
               project={task?.important_urgent}
-              phase="IU"
+              phase="UI"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
             <ImportantNotUrgentTask
               project={task?.important_not_urgent}
-              phase="I!U"
+              phase="!UI"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
             <NotImportantUrgentTask
               project={task?.not_important_urgent}
-              phase="!IU"
+              phase="U!I"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />
             <NotImportantNotUrgentTask
               project={task?.not_important_not_urgent}
               task={task}
-              phase="!I!U"
+              phase="!U!I"
               selectedTask={selectedTask}
               setSelectedTask={setSelectedTask}
             />

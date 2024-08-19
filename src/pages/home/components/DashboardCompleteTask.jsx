@@ -55,7 +55,7 @@ export default function DashboardCompleteTask({
           >
             {task?.project_name}
           </p>
-          <p>{phase}</p>
+          {/* <p>{phase}</p> */}
         </div>
       </div>
     </div>

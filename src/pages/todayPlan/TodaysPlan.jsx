@@ -125,44 +125,45 @@ export default function TodaysPlan() {
           ))}
         </tbody>
       </table>
+
       <div className="py-4">
         <h1 className="text-xl font-semibold pb-4">Select Category</h1>
         <div className="flex gap-6 items-center">
           <div
-            className={`px-4 py-2 font-bold rounded-md cursor-pointer ${
+            className={`px-4 py-2 font-bold rounded-md cursor-pointer border ${
               selectedCategory === "important_urgent"
-                ? "bg-primary"
-                : "bg-[#DCE1E8]"
+                ? "bg-[#DCE1E8] border border-gray-400"
+                : " border-[#E20DCD] bg-[#FBDCF8] text-[#E20DCD]"
             }`}
             onClick={() => setSelectedCategory("important_urgent")}
           >
             UI
           </div>
           <div
-            className={`px-4 py-2 font-bold rounded-md cursor-pointer ${
+            className={`px-4 py-2 font-bold rounded-md cursor-pointer border ${
               selectedCategory === "not_important_urgent"
-                ? "bg-primary"
-                : "bg-[#DCE1E8]"
+                ? "bg-[#DCE1E8] border border-gray-400"
+                : "border-blue text-blue bg-[#EEF8FF]"
             }`}
             onClick={() => setSelectedCategory("not_important_urgent")}
           >
             U!I
           </div>
           <div
-            className={`px-4 py-2 font-bold rounded-md cursor-pointer ${
+            className={`px-4 py-2 font-bold rounded-md cursor-pointer border ${
               selectedCategory === "important_not_urgent"
-                ? "bg-primary"
-                : "bg-[#DCE1E8]"
+                ? "bg-[#DCE1E8] border border-gray-400"
+                : " border-[#E8F70C] bg-[#F3FDD2]/60 text-black"
             }`}
             onClick={() => setSelectedCategory("important_not_urgent")}
           >
             !UI
           </div>
           <div
-            className={`px-4 py-2 font-bold rounded-md cursor-pointer ${
+            className={`px-4 py-2 font-bold rounded-md cursor-pointer border ${
               selectedCategory === "not_important_not_urgent"
-                ? "bg-primary"
-                : "bg-[#DCE1E8]"
+                ? "bg-[#DCE1E8] border border-gray-400 "
+                : "border-[#051F4D] bg-[#AECBFF]/50 text-[#051F4D]"
             }`}
             onClick={() => setSelectedCategory("not_important_not_urgent")}
           >

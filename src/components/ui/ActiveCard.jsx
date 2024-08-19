@@ -92,7 +92,7 @@ export default function ActiveCard({ task }) {
           <ActiveTaskSegment
             projectName={project}
             obj={task?.important_not_urgent}
-            phase="I!U"
+            phase="!UI"
             setSelectedTask={setSelectedTask}
             selectedTask={selectedTask}
           />
@@ -101,7 +101,7 @@ export default function ActiveCard({ task }) {
           <ActiveTaskSegment
             projectName={project}
             obj={task?.important_urgent}
-            phase="IU"
+            phase="UI"
             setSelectedTask={setSelectedTask}
             selectedTask={selectedTask}
           />
@@ -110,7 +110,7 @@ export default function ActiveCard({ task }) {
           <ActiveTaskSegment
             projectName={project}
             obj={task?.not_important_not_urgent}
-            phase="!I!U"
+            phase="!U!I"
             setSelectedTask={setSelectedTask}
             selectedTask={selectedTask}
           />
@@ -119,7 +119,7 @@ export default function ActiveCard({ task }) {
           <ActiveTaskSegment
             projectName={project}
             obj={task?.not_important_urgent}
-            phase="!IU"
+            phase="U!I"
             setSelectedTask={setSelectedTask}
             selectedTask={selectedTask}
           />
