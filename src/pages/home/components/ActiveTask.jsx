@@ -35,13 +35,13 @@ export default function ActiveTask({ showCreateForm, setShowCreateForm }) {
             >
               <div className="w-full">
                 <p
-                  className="text-[12px] hover:bg-primary p-2 cursor-pointer"
+                  className=" hover:bg-primary p-2 cursor-pointer"
                   onClick={() => setShowCreateForm(!showCreateForm)}
                 >
                   Create Task
                 </p>
                 <p
-                  className="text-[12px] hover:bg-primary p-2 cursor-pointer"
+                  className=" hover:bg-primary p-2 cursor-pointer"
                   onClick={() => setShowCreateProject(!showCreateProject)}
                 >
                   Create Project

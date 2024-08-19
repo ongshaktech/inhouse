@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="relative  container mx-auto px-10 py-2 flex flex-col md:flex-row justify-between gap-10 items-center z-10">
         <div className="max-w-[500px]  w-full flex justify-between items-center">
           <Link to="/">
-            <h2 className="text-2xl font-bold">Ongshak</h2>
+            <h2 className="text-2xl font-bold">ongshak</h2>
           </Link>
           <div className="md:hidden">
             {!showNav ? (
@@ -40,7 +40,7 @@ export default function Navbar() {
           <ul className="flex flex-col md:flex-row gap-16 items-center text-sm ">
             {/* <p>Dashboard</p> */}
 
-            <div className="relative">
+            {/* <div className="relative">
               <p className=" peer font-semibold text-[12px] flex items-center gap-1 cursor-pointer">
                 <p>Tasks</p>
                 <FaAngleDown />
@@ -49,11 +49,7 @@ export default function Navbar() {
                 className={`z-10 hidden  peer-hover:flex hover:flex  absolute top-[15px] left-0 bg-white divide-y divide-gray-100  shadow w-56 p-4 border-t-4 border-primary`}
               >
                 <div className="w-full">
-                  <NavLink to="/todays-plan" smooth>
-                    <p className="text-[12px] hover:bg-primary p-2 cursor-pointer">
-                      Todays’Task
-                    </p>
-                  </NavLink>
+                  
                   <NavLink to="/completed-task" smooth>
                     <p className="text-[12px] hover:bg-primary p-2 cursor-pointer">
                       Completed Task
@@ -61,7 +57,13 @@ export default function Navbar() {
                   </NavLink>
                 </div>
               </div>
-            </div>
+            </div> */}
+            <NavLink
+              to="/todays-plan"
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
+            >
+              <p>Todays’Task</p>
+            </NavLink>
             <NavLink
               to="/projects"
               className={({ isActive }) => (isActive ? "font-bold" : "")}

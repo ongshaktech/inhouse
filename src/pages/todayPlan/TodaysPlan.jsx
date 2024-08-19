@@ -38,7 +38,7 @@ export default function TodaysPlan() {
       toast.success(addTodaysPlandata?.status);
       setselectedTask([]);
       setSelectedCategory("");
-      navigate("/");
+      // navigate("/");
     }
   }, [isSuccess]);
 

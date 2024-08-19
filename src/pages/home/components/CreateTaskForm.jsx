@@ -7,6 +7,7 @@ import {
 import { toast } from "react-toastify";
 import SearchProjectList from "./SearchProjectList";
 import SearchUserList from "./SearchUserlist";
+import { FaTrash } from "react-icons/fa";
 
 export default function CreateTaskForm() {
   let [projectTerm, setProjectTerm] = useState("");
@@ -40,6 +41,14 @@ export default function CreateTaskForm() {
     }
   };
 
+  const handleDeleteTask = (taskName) => {
+    let filteredTask = taskDetail?.task_names?.filter(task => task !== taskName);
+    setTaskDetail({
+      ...taskDetail,
+      task_names: filteredTask,
+    });
+  }
+
   useEffect(() => {
     if (isSuccess) {
       toast.success(data?.status);
@@ -51,8 +60,12 @@ export default function CreateTaskForm() {
         resources: "",
         due_date: "",
       });
+      setProjectTerm("");
+      setUserTerm("");
     }
   }, [isSuccess]);
+
+  console.log("projectTerm", projectTerm, userTerm);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,11 +83,11 @@ export default function CreateTaskForm() {
   };
 
   return (
-    <div className=" rounded-md">
+    <div className="  rounded-md">
       <div className=" rounded-md ">
         <h1 className="text-xl font-semibold">Create Task</h1>
       </div>
-      <form className="  mx-auto flex flex-col gap-6 py-8">
+      <form className="relative max-w-xl  mx-auto flex flex-col gap-6  ">
         {/* <div className="flex gap-8"> */}
         <label className="relative flex flex-col gap-2 w-full">
           <p className="font-medium">Select the Project</p>
@@ -126,8 +139,9 @@ export default function CreateTaskForm() {
           </div>
           <div className="flex flex-col gap-2 items-center">
             {taskDetail?.task_names?.map((task, id) => (
-              <div key={id} className="p-2 bg-white w-full rounded-md">
-                - {task}
+              <div key={id} className="p-2 bg-white w-full rounded-md flex gap-4 justify-between items-center" >
+                <p>- {task} </p>
+                <FaTrash className="w-4 h-4 cursor-pointer" onClick={() =>handleDeleteTask(task)} />
               </div>
             ))}
           </div>
@@ -151,7 +165,7 @@ export default function CreateTaskForm() {
             }
           />
         </label>
-        
+
         <label className="relative flex flex-col gap-2 w-full">
           <p className="font-medium">Assign Task to</p>
           <input
@@ -230,7 +244,7 @@ export default function CreateTaskForm() {
           />
         </label>
         <div
-          className="border border-[#727070] flex justify-center items-center w-10 h-10 rounded-md cursor-pointer px-10  hover:bg-primary hover:text-black transition-all duration-300"
+          className="sticky bottom-0    border border-[#727070] flex justify-center items-center w-10 h-10 rounded-md cursor-pointer px-10  bg-white  hover:bg-primary hover:text-black transition-all duration-300 ml-20 md:ml-[340px]"
           disabled={isLoading}
           onClick={handleSubmit}
         >

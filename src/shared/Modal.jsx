@@ -5,9 +5,9 @@ export default function Modal({ open, control, children, bg, padding }) {
     open && (
       <div className="fixed top-0 left-0 w-full h-full bg-black/30 z-[100] flex justify-center items-center">
         <div
-          className={`relative bg-white max-h-[750px] max-w-[500px] w-full  h- mx-4 shadow-xl ${
+          className={`relative bg-white max-h-[750px] max-w-[500px] w-full  mx-4 shadow-xl ${
             padding ? padding : "p-10"
-          } rounded overflow-y-scroll`}
+          } rounded-xl overflow-y-scroll`}
         >
           <span
             className="absolute top-6 right-6 z-50 cursor-pointer rounded-full p-2"

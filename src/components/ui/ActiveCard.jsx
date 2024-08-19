@@ -84,7 +84,7 @@ export default function ActiveCard({ task }) {
             />
           )}
 
-          <TbDotsVertical className="w-6 h-6 cursor-pointer" />
+          {/* <TbDotsVertical className="w-6 h-6 cursor-pointer" /> */}
         </div>
       </div>
       {importantNotUrgentTask?.map((project) => (
