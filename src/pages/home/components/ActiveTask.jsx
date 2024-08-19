@@ -14,7 +14,7 @@ export default function ActiveTask({ showCreateForm, setShowCreateForm }) {
 
   let [showCreateProject, setShowCreateProject] = useState(false);
   return (
-    <div className="container mx-auto px-6 py-6">
+    <div className="relative container mx-auto px-6 py-6">
       <div className="flex flex-col md:flex-row justify-between items-center pb-8">
         <h2 className="text-2xl font-bold pb-10 text-pen">
           Active Task Overview

@@ -35,7 +35,9 @@ export default function ActiveTaskSegment({
         </button>
       </div>
       {tasks?.map((task) => (
-        <p className="text-pen text-sm">- {task?.task_name}</p>
+        <>
+          <p className="text-pen text-sm">- {task?.task_name}</p>
+        </>
       ))}
     </>
   );

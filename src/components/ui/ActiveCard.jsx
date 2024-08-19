@@ -65,64 +65,66 @@ export default function ActiveCard({ task }) {
   }, [isError]);
 
   return allData?.length ? (
-    <div className="shadow-md rounded-lg p-4 relative hover:bg-gray-100 hover:scale-105 transition-all duration-300 " >
-      <div className="flex gap-4 justify-between items-center pb-2">
-        <div className="absolute -top-6 left-4">
-          <img
-            src={task?.profile_img}
-            alt=""
-            className="w-[50px] h-[50px] object-cover rounded-full"
-          />
-        </div>
-
-        <div></div>
-        <div className="flex gap-2 items-center">
-          {!isLoading && (
-            <LuBadgeCheck
-              className="w-6 h-6 cursor-pointer"
-              onClick={handleComplete}
+    <div className="shadow-md rounded-lg p-4 relative hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex flex-col justify-between">
+      <div>
+        <div className="flex gap-4 justify-between items-center pb-2">
+          <div className="absolute -top-6 left-4">
+            <img
+              src={task?.profile_img}
+              alt=""
+              className="w-[50px] h-[50px] object-cover rounded-full"
             />
-          )}
+          </div>
 
-          {/* <TbDotsVertical className="w-6 h-6 cursor-pointer" /> */}
+          <div></div>
+          <div className="flex gap-2 items-center">
+            {!isLoading && (
+              <LuBadgeCheck
+                className="w-6 h-6 cursor-pointer"
+                onClick={handleComplete}
+              />
+            )}
+
+            {/* <TbDotsVertical className="w-6 h-6 cursor-pointer" /> */}
+          </div>
         </div>
+        {importantNotUrgentTask?.map((project) => (
+          <ActiveTaskSegment
+            projectName={project}
+            obj={task?.important_not_urgent}
+            phase="I!U"
+            setSelectedTask={setSelectedTask}
+            selectedTask={selectedTask}
+          />
+        ))}
+        {importantUrgentTask?.map((project) => (
+          <ActiveTaskSegment
+            projectName={project}
+            obj={task?.important_urgent}
+            phase="IU"
+            setSelectedTask={setSelectedTask}
+            selectedTask={selectedTask}
+          />
+        ))}
+        {notImportantNotUrgentTask?.map((project) => (
+          <ActiveTaskSegment
+            projectName={project}
+            obj={task?.not_important_not_urgent}
+            phase="!I!U"
+            setSelectedTask={setSelectedTask}
+            selectedTask={selectedTask}
+          />
+        ))}
+        {notImportantUrgentTask?.map((project) => (
+          <ActiveTaskSegment
+            projectName={project}
+            obj={task?.not_important_urgent}
+            phase="!IU"
+            setSelectedTask={setSelectedTask}
+            selectedTask={selectedTask}
+          />
+        ))}
       </div>
-      {importantNotUrgentTask?.map((project) => (
-        <ActiveTaskSegment
-          projectName={project}
-          obj={task?.important_not_urgent}
-          phase="I!U"
-          setSelectedTask={setSelectedTask}
-          selectedTask={selectedTask}
-        />
-      ))}
-      {importantUrgentTask?.map((project) => (
-        <ActiveTaskSegment
-          projectName={project}
-          obj={task?.important_urgent}
-          phase="IU"
-          setSelectedTask={setSelectedTask}
-          selectedTask={selectedTask}
-        />
-      ))}
-      {notImportantNotUrgentTask?.map((project) => (
-        <ActiveTaskSegment
-          projectName={project}
-          obj={task?.not_important_not_urgent}
-          phase="!I!U"
-          setSelectedTask={setSelectedTask}
-          selectedTask={selectedTask}
-        />
-      ))}
-      {notImportantUrgentTask?.map((project) => (
-        <ActiveTaskSegment
-          projectName={project}
-          obj={task?.not_important_urgent}
-          phase="!IU"
-          setSelectedTask={setSelectedTask}
-          selectedTask={selectedTask}
-        />
-      ))}
 
       <div className="flex justify-end pt-1 ">
         <div className="flex gap-2 items-center">
