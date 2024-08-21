@@ -5,11 +5,24 @@ import { Link, NavLink } from "react-router-dom";
 import photo from "../assets/images/photo.jpeg";
 import { useGetProfileQuery } from "../features/userApi/userApi";
 import men1 from "../assets/images/men1.png";
-import { FaAngleDown } from "react-icons/fa";
+import {
+  FaAngleDown,
+  FaLongArrowAltRight,
+  FaLongArrowAltUp,
+} from "react-icons/fa";
+import { AiOutlineLogout } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { userLogedOut } from "../features/auth/authSlice";
 
 export default function Navbar() {
   let [showNav, setShowNav] = useState(false);
   const { data: profileData, isSuccess } = useGetProfileQuery();
+
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(userLogedOut());
+  };
 
   return (
     <div className="bg-primary text-black">
@@ -88,6 +101,7 @@ export default function Navbar() {
                   className="w-12 h-12 rounded-full object-cover"
                 />
               </div>
+              <AiOutlineLogout className="w-6 h-6 cursor-pointer" onClick={() => handleLogout()} />
             </div>
           </ul>
         </div>
