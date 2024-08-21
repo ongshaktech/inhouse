@@ -25,8 +25,6 @@ export default function CreateTaskForm() {
     due_date: "",
   });
 
-  console.log("taskDetail", taskDetail);
-
   const { data: taskoverview } = useGetTaskDetailQuery();
 
   const [addTask, { data, isLoading, isSuccess }] = useAddTaskMutation();
@@ -67,8 +65,6 @@ export default function CreateTaskForm() {
     }
   }, [isSuccess]);
 
-  console.log("projectTerm", projectTerm, userTerm);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -99,7 +95,7 @@ export default function CreateTaskForm() {
             id=""
             placeholder="eg. inhouse"
             className="w-full px-4 py-2 rounded-md outline-none border border-[#727070]"
-            onFocus={() => setShowProjectList(true)}
+            onFocus={() => projectTerm == "" && setShowProjectList(true)}
             value={projectTerm}
             onChange={(e) => {
               setProjectTerm(e.target.value);
@@ -183,7 +179,7 @@ export default function CreateTaskForm() {
             id=""
             placeholder="eg. Ridwan"
             className="w-full px-4 py-2 rounded-md outline-none border border-[#727070]"
-            onFocus={() => setShowUserList(true)}
+            onFocus={() => userTerm == "" && setShowUserList(true)}
             value={userTerm}
             onChange={(e) => {
               setUserTerm(e.target.value);

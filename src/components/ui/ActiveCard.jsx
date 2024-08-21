@@ -37,14 +37,11 @@ export default function ActiveCard({ task }) {
 
   let [selectedTask, setSelectedTask] = useState([]);
 
-  console.log("selectedTask", selectedTask);
 
   const [
     completeTask,
     { data: compelteData, isSuccess, isLoading, isError, error },
   ] = useCompleteTaskMutation();
-
-  console.log(" isError, error", isError, error);
 
   const handleComplete = () => {
     completeTask(selectedTask);

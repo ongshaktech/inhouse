@@ -29,7 +29,6 @@ export default function NotImportantNotUrgentTask({
   let completed4 = Object.keys(
     task?.important_urgent?.completed ? task?.important_urgent?.completed : {}
   );
-  console.log("completed1", completed1, completed2, completed3, completed4);
 
   return (
     <div className="pt-2">

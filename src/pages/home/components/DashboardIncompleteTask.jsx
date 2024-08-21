@@ -24,7 +24,6 @@ export default function DashboardIncompleteTask({
       (account) => account?.task_id === trackingId
     );
 
-    console.log("hasTask", trackingId, hasTask);
 
     if (!hasTask) {
       setSelectedTask([{ task_id: trackingId, status: "ongoing" }]);

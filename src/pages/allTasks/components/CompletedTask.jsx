@@ -5,7 +5,6 @@ import CompletedTaskTable from "./CompletedTaskTable";
 export default function CompletedTask() {
   const { data, isLoading, isError, error } = useGetTaskOverviewQuery();
 
-  console.log("complete task", data);
   let content;
 
   if (isLoading) {

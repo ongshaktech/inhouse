@@ -10,7 +10,6 @@ import { NavLink } from "react-router-dom";
 
 export default function ActiveTask({ showCreateForm, setShowCreateForm }) {
   const { data, isLoading, isError, error } = useGetTaskOverviewQuery();
-  console.log("data", data, isLoading, isError, error);
 
   let [showCreateProject, setShowCreateProject] = useState(false);
   return (

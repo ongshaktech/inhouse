@@ -42,7 +42,6 @@ export default function TodaysPlan() {
     }
   }, [isSuccess]);
 
-  console.log("selectedTask", selectedTask);
 
   const handleTask = (e) => {
     let trackingId = Number(e.target.value);
@@ -50,7 +49,6 @@ export default function TodaysPlan() {
       (account) => account?.task_id === trackingId
     );
 
-    console.log("hasTask", hasTask);
 
     if (!hasTask) {
       setselectedTask([...selectedTask, { task_id: trackingId }]);
@@ -72,7 +70,6 @@ export default function TodaysPlan() {
     addTodaysPlan(selectedTask);
   };
 
-  console.log("todaysPlan", todaysPlan);
   return (
     <div className="container  mx-auto  rounded-md p-10">
       <h1 className="font-semibold text-xl pb-6">

@@ -2,7 +2,6 @@ import { useGetProjectProgressQuery } from "../../../features/projects/projectsA
 
 export default function ProjectTable() {
   const { data: allProjects } = useGetProjectProgressQuery();
-  console.log("data", allProjects);
   return (
     <div className="container mx-auto p-10 rounded-md">
       <h1 className="text-2xl font-semibold pb-8">View Projects</h1>

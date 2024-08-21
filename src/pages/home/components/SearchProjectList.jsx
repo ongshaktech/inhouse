@@ -7,7 +7,7 @@ export default function SearchProjectList({
   controll,
   projects,
   setTaskDetail,
-  taskDetail
+  taskDetail,
 }) {
   let [allProjects, setAllProjects] = useState([]);
 
@@ -54,12 +54,11 @@ export default function SearchProjectList({
           className="flex justify-between gap-2 px-2 cursor-pointer"
           onClick={() => {
             setTerm(`${project?.name}`);
-            // setData(project?.iata_code);
-            controll();
             setTaskDetail({
-                ...taskDetail,
-                project_id: Number(project?.id)
-            })
+              ...taskDetail,
+              project_id: Number(project?.id),
+            });
+            controll();
           }}
         >
           <div className=" flex gap-3">

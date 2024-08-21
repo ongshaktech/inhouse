@@ -3,7 +3,6 @@ import { useGetProjectTimelineQuery } from "../../../features/projects/projectsA
 export default function TimelineTable() {
   let { data: timelineData } = useGetProjectTimelineQuery();
 
-  console.log("timelineData", timelineData);
   return (
     <div className="">
       <table className="w-full text-sm text-left rtl:text-right text-gray-800 border">

@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 export default function IndividualCompleteTask({ projectName, obj, image }) {
   let tasks = obj?.completed[projectName];
 
-  console.log("taks", tasks )
   return tasks?.map((task, id) => (
     <tr
       className={`border-b bg-white`}

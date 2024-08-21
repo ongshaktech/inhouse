@@ -17,7 +17,6 @@ export default function DashboardCompleteTask({
       (account) => account?.task_id === trackingId
     );
 
-    console.log("hasTask", trackingId, hasTask);
 
     if (!hasTask) {
       setSelectedTask([{ task_id: trackingId, status: "ongoing" }]);
@@ -27,7 +26,6 @@ export default function DashboardCompleteTask({
       toast.error("Can't add more than one task");
     }
   };
-  console.log("completed Task", tasks)
 
   return tasks?.map((task) => (
    <>

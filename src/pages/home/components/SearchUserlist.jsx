@@ -55,11 +55,11 @@ export default function SearchUserList({
           onClick={() => {
             setTerm(`${user?.name}`);
             // setData(user?.iata_code);
-            controll();
             setTaskDetail({
               ...taskDetail,
               user_id: Number(user?.user_id),
             });
+            controll();
           }}
         >
           <div className=" flex gap-3">
