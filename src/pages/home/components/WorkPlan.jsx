@@ -1,6 +1,7 @@
 import React from "react";
 import WorkCard from "./WorkCard";
 import { useGetTaskOverviewQuery } from "../../../features/projects/projectsApi";
+import WorkCardLogedin from "./WorkCardLogedin";
 
 export default function WorkPlan({ showCreateForm, setShowCreateForm }) {
   const { data, isLoading, isError, error } = useGetTaskOverviewQuery();
@@ -17,11 +18,10 @@ export default function WorkPlan({ showCreateForm, setShowCreateForm }) {
         <div className=" flex flex-col gap-8">
           {/* <WorkCard /> */}
           <div className="grid grid-cols-1 gap-8">
-            <WorkCard
+            <WorkCardLogedin
               task={data[0]}
               showCreateForm={showCreateForm}
               setShowCreateForm={setShowCreateForm}
-              first={true}
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -30,7 +30,6 @@ export default function WorkPlan({ showCreateForm, setShowCreateForm }) {
                 task={task}
                 showCreateForm={showCreateForm}
                 setShowCreateForm={setShowCreateForm}
-                first={false}
               />
             ))}
           </div>

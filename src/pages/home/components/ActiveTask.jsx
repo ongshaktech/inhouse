@@ -18,7 +18,7 @@ export default function ActiveTask({ showCreateForm, setShowCreateForm }) {
         <h2 className="text-2xl font-bold pb-10 text-pen">
           Active Task Overview
         </h2>
-        <div className="flex gap-4 flex-col md:flex-row items-center">
+        <div className="flex gap-4  flex-col md:flex-row items-center">
           <div className="relative">
             {/* <p className="  font-semibold text-[12px] flex items-center gap-1 cursor-pointer">
                 <p>create</p>
@@ -48,9 +48,9 @@ export default function ActiveTask({ showCreateForm, setShowCreateForm }) {
               </div>
             </div>
           </div>
-          <button className="flex gap-2 items-center border border-gray-400 px-3 py-2 rounded-md">
+          {/* <button className="flex gap-2 items-center border border-gray-400 px-3 py-2 rounded-md">
             <p>Assigned Task</p>
-          </button>
+          </button> */}
           {/* <select
             name=""
             id=""
@@ -62,7 +62,7 @@ export default function ActiveTask({ showCreateForm, setShowCreateForm }) {
           </select> */}
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-10 md:gap-x-6 md:gap-y-10">
         {data?.map((task) => (
           <ActiveCard task={task} />
         ))}

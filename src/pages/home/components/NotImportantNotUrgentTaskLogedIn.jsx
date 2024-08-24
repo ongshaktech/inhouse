@@ -1,8 +1,9 @@
 import React from "react";
 import DashboardIncompleteTask from "./DashboardIncompleteTask";
 import DashboardCompleteTask from "./DashboardCompleteTask";
+import DashboardCompleteTaskLogedIn from "./DashboardCompletedTaskLogedIn";
 
-export default function NotImportantNotUrgentTask({
+export default function NotImportantNotUrgentTaskLogedIn({
   project,
   phase,
   task,
@@ -31,7 +32,9 @@ export default function NotImportantNotUrgentTask({
   );
 
   return (
-    <div className="flex flex-col gap-4">
+    // <div className="pt-2">
+    //   <div className="grid grid-cols-2 gap-4">
+    <>
       {Object?.keys(project?.incomplete)?.length
         ? allProjects?.map((projectDetail, id) => (
             <DashboardIncompleteTask
@@ -46,7 +49,7 @@ export default function NotImportantNotUrgentTask({
         : null}
       {completed1?.length
         ? completed1?.map((projectDetail, id) => (
-            <DashboardCompleteTask
+            <DashboardCompleteTaskLogedIn
               key={id}
               projectName={projectDetail}
               project={task?.not_important_not_urgent}
@@ -58,7 +61,7 @@ export default function NotImportantNotUrgentTask({
         : null}
       {completed2?.length
         ? completed2?.map((projectDetail, id) => (
-            <DashboardCompleteTask
+            <DashboardCompleteTaskLogedIn
               key={id}
               projectName={projectDetail}
               project={task?.not_important_urgent}
@@ -70,7 +73,7 @@ export default function NotImportantNotUrgentTask({
         : null}
       {completed3?.length
         ? completed3?.map((projectDetail, id) => (
-            <DashboardCompleteTask
+            <DashboardCompleteTaskLogedIn
               key={id}
               projectName={projectDetail}
               project={task?.important_not_urgent}
@@ -82,7 +85,7 @@ export default function NotImportantNotUrgentTask({
         : null}
       {completed4?.length
         ? completed4?.map((projectDetail, id) => (
-            <DashboardCompleteTask
+            <DashboardCompleteTaskLogedIn
               key={id}
               projectName={projectDetail}
               project={task?.important_urgent}
@@ -92,6 +95,9 @@ export default function NotImportantNotUrgentTask({
             />
           ))
         : null}
-    </div>
+
+      {/* </div>
+    </div> */}
+    </>
   );
 }
