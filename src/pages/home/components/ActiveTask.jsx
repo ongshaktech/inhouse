@@ -30,7 +30,7 @@ export default function ActiveTask({ showCreateForm, setShowCreateForm }) {
               <p>Create</p>
             </button>
             <div
-              className={`z-10 hidden  peer-hover:flex hover:flex  absolute top-10 left-0 bg-white divide-y divide-gray-100  shadow w-56 p-4 border-t-4 border-primary`}
+              className={`z-10 hidden  peer-hover:flex hover:flex  absolute top-10 right-0 bg-white divide-y divide-gray-100  shadow w-56 p-4 border-t-4 border-primary`}
             >
               <div className="w-full">
                 <p
