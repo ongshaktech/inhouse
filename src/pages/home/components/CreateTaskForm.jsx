@@ -143,10 +143,12 @@ export default function CreateTaskForm() {
                 className="p-2 bg-white w-full rounded-md flex gap-4 justify-between items-center"
               >
                 <p>- {task} </p>
-                <FaRegTrashAlt
-                  className="w-4 h-4 cursor-pointer"
-                  onClick={() => handleDeleteTask(task)}
-                />
+                <div className="w-[40px]">
+                  <FaRegTrashAlt
+                    className="w-4 h-4 cursor-pointer"
+                    onClick={() => handleDeleteTask(task)}
+                  />
+                </div>
               </div>
             ))}
           </div>
