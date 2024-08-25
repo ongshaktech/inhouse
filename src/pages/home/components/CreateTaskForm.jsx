@@ -7,7 +7,7 @@ import {
 import { toast } from "react-toastify";
 import SearchProjectList from "./SearchProjectList";
 import SearchUserList from "./SearchUserlist";
-import { FaTrash } from "react-icons/fa";
+import { FaRegTrashAlt, FaTrash } from "react-icons/fa";
 
 export default function CreateTaskForm() {
   let [projectTerm, setProjectTerm] = useState("");
@@ -143,7 +143,7 @@ export default function CreateTaskForm() {
                 className="p-2 bg-white w-full rounded-md flex gap-4 justify-between items-center"
               >
                 <p>- {task} </p>
-                <FaTrash
+                <FaRegTrashAlt
                   className="w-4 h-4 cursor-pointer"
                   onClick={() => handleDeleteTask(task)}
                 />
