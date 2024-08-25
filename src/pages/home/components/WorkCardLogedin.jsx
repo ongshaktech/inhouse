@@ -10,6 +10,7 @@ import ongoingImg from "../../../assets/images/ongoing.svg";
 import { useCompleteTaskMutation } from "../../../features/projects/projectsApi";
 import { toast } from "react-toastify";
 import NotImportantNotUrgentTaskLogedIn from "./NotImportantNotUrgentTaskLogedIn";
+import NotImportantNotUrgentIncompleteTask from "./NotImportantNotUrgentIncompelteTask";
 
 export default function WorkCardLogedin({
   task,
@@ -119,34 +120,44 @@ export default function WorkCardLogedin({
           {/* <TbDotsVertical className="w-6 h-6 cursor-pointer" /> */}
         </div>
       </div>
-      <div className="flex gap-8 divide-x md:divide-dashed  divide-gray-400 min-h-[400px] max-h-[400px] overflow-y-scroll">
+      <div className="flex gap-8 divide-x md:divide-dashed  divide-gray-400 ">
         <div className="w-full pt-2">
           <div className="w-full grid grid-cols-1 md:grid-cols-2  gap-4">
-            <ImportantUrgentTask
-              project={task?.important_urgent}
-              phase="UI"
-              selectedTask={selectedTask}
-              setSelectedTask={setSelectedTask}
-            />
-            <ImportantNotUrgentTask
-              project={task?.important_not_urgent}
-              phase="!UI"
-              selectedTask={selectedTask}
-              setSelectedTask={setSelectedTask}
-            />
-            <NotImportantUrgentTask
-              project={task?.not_important_urgent}
-              phase="U!I"
-              selectedTask={selectedTask}
-              setSelectedTask={setSelectedTask}
-            />
-            <NotImportantNotUrgentTaskLogedIn
-              project={task?.not_important_not_urgent}
-              task={task}
-              phase="!U!I"
-              selectedTask={selectedTask}
-              setSelectedTask={setSelectedTask}
-            />
+            <div className="col-span-1 flex flex-col gap-2 min-h-[400px] max-h-[400px] overflow-y-scroll">
+              <ImportantUrgentTask
+                project={task?.important_urgent}
+                phase="UI"
+                selectedTask={selectedTask}
+                setSelectedTask={setSelectedTask}
+              />
+              <ImportantNotUrgentTask
+                project={task?.important_not_urgent}
+                phase="!UI"
+                selectedTask={selectedTask}
+                setSelectedTask={setSelectedTask}
+              />
+              <NotImportantUrgentTask
+                project={task?.not_important_urgent}
+                phase="U!I"
+                selectedTask={selectedTask}
+                setSelectedTask={setSelectedTask}
+              />
+              <NotImportantNotUrgentIncompleteTask
+                project={task?.not_important_not_urgent}
+                phase="!U!I"
+                selectedTask={selectedTask}
+                setSelectedTask={setSelectedTask}
+              />
+            </div>
+            <div className="col-span-1 flex flex-col gap-2 h-full min-h-[400px] max-h-[400px] overflow-y-scroll">
+              <NotImportantNotUrgentTaskLogedIn
+                project={task?.not_important_not_urgent}
+                task={task}
+                phase="!U!I"
+                selectedTask={selectedTask}
+                setSelectedTask={setSelectedTask}
+              />
+            </div>
           </div>
         </div>
       </div>

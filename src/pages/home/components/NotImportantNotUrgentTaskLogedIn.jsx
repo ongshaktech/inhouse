@@ -10,7 +10,6 @@ export default function NotImportantNotUrgentTaskLogedIn({
   selectedTask,
   setSelectedTask,
 }) {
-  let allProjects = Object.keys(project?.incomplete ? project?.incomplete : {});
 
   let completed1 = Object.keys(
     task?.not_important_not_urgent?.completed
@@ -35,7 +34,7 @@ export default function NotImportantNotUrgentTaskLogedIn({
     // <div className="pt-2">
     //   <div className="grid grid-cols-2 gap-4">
     <>
-      {Object?.keys(project?.incomplete)?.length
+      {/* {Object?.keys(project?.incomplete)?.length
         ? allProjects?.map((projectDetail, id) => (
             <DashboardIncompleteTask
               key={id}
@@ -46,7 +45,7 @@ export default function NotImportantNotUrgentTaskLogedIn({
               setSelectedTask={setSelectedTask}
             />
           ))
-        : null}
+        : null} */}
       {completed1?.length
         ? completed1?.map((projectDetail, id) => (
             <DashboardCompleteTaskLogedIn
