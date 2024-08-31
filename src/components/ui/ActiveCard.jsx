@@ -62,8 +62,8 @@ export default function ActiveCard({ task }) {
   }, [isError]);
 
   return allData?.length ? (
-    <div className="shadow-md rounded-lg p-4 relative hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex flex-col justify-between">
-      <div>
+    <div className="shadow-md rounded-lg p-4 relative hover:bg-gray-100 hover:scale-105 transition-all duration-300 ">
+      <div className="h-full">
         <div className="flex gap-4 justify-between items-center pb-2">
           <div className="absolute -top-6 left-4">
             <img
@@ -123,12 +123,7 @@ export default function ActiveCard({ task }) {
         ))}
       </div>
 
-      <div className="flex justify-end pt-1 ">
-        <div className="flex gap-2 items-center">
-          <RxTimer />
-          <p>00:00:00</p>
-        </div>
-      </div>
+      
     </div>
   ) : null;
 }
