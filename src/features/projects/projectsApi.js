@@ -74,7 +74,7 @@ export const projectsApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: ["plan"],
+      invalidatesTags: ["plan", "task"],
     }),
 
     getProjectProgress: builder.query({
