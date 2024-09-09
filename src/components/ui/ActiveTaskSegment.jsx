@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { RxTimer } from "react-icons/rx";
 import { timeCalculate } from "../../utils/timeCalculate";
+import TimeComponent from "./TimeComponent";
 
 export default function ActiveTaskSegment({
   projectName,
@@ -49,7 +50,8 @@ export default function ActiveTaskSegment({
       <div className="flex justify-end  ">
         <div className="flex gap-2 items-center">
           <RxTimer />
-          <p>{timeCalculate(tasks[0]?.started_on)}</p>
+          <TimeComponent startedOn={tasks[0]?.started_on} />
+          {/* <p>{timeCalculate()}</p> */}
         </div>
       </div>
     </div>
