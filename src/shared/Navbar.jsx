@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiOutlineViewList, HiOutlineX } from "react-icons/hi";
 import { HiOutlineBellAlert } from "react-icons/hi2";
 import { Link, NavLink } from "react-router-dom";
@@ -16,13 +16,19 @@ import { userLogedOut } from "../features/auth/authSlice";
 
 export default function Navbar() {
   let [showNav, setShowNav] = useState(false);
-  const { data: profileData, isSuccess } = useGetProfileQuery();
+  const { data: profileData, isError, error } = useGetProfileQuery();
 
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(userLogedOut());
   };
+
+  useEffect(() => {
+    if (isError && error?.status == "401") {
+      dispatch(userLogedOut());
+    }
+  }, [isError, error]);
 
   return (
     <div className="bg-primary text-black">
@@ -101,7 +107,10 @@ export default function Navbar() {
                   className="w-12 h-12 rounded-full object-cover"
                 />
               </div>
-              <AiOutlineLogout className="w-6 h-6 cursor-pointer" onClick={() => handleLogout()} />
+              <AiOutlineLogout
+                className="w-6 h-6 cursor-pointer"
+                onClick={() => handleLogout()}
+              />
             </div>
           </ul>
         </div>
